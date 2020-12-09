@@ -15,18 +15,6 @@ export default function Home() {
   const [deleteIndex,setDeleteIndex] = useState()
   const [isModalVisible, setIsModalVisible] = useState(false)
 
-  // function deleteData(){
-  //   let oldBook = [...bookData];
-  //   oldBook.forEach(item => {
-  //     if (item.id == pid) {
-  //       item.name = name;
-  //       item.author = author;
-  //       item.desc = desc
-  //     }
-  //   })
-  
-  //   setBookData(oldBook);
-  // }
 
   const handleOk = () => {
     let temp = [...bookData];

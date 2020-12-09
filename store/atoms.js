@@ -10,10 +10,4 @@ export const books = atom({
     }]
 })
 
-// export const STATE_SANDBOX = atom({
-//     key: 'stateSandbox',
-//     default: {
-//         message: "Hallo from sandbox"
-//     }
-// })
 
