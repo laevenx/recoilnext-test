@@ -6,22 +6,30 @@ import {useSetRecoilState,useRecoilValue,useRecoilState} from 'recoil'
 import {addData} from '../store/selectors'
 import {Input,Button} from 'antd'
 import { useState } from 'react'
+import { useRouter } from 'next/router'
+
 
 export default function Create() {
     const [books,setBooks] = useRecoilState(addData);
-//   const addBook =  useSetRecoilState(addData)
+  // const addBook =  useSetRecoilState(addData)
   const [name, setName] = useState('')
   const [author,setAuthor] = useState('')
   const [desc,setDesc] = useState('')
 
+  const router = useRouter()
+
   function create (){
       const book = {
-          name: 'testing',
-          author: 'testing',
-          desc: 'testing'
+          id : books.length,
+          name,
+          author,
+          desc
       }
-     setBooks(book)
-    //   addBook(books => [...books,book])
+      console.log(book)
+    //  setBooks(book)
+    setBooks(books => [...books,book])
+     router.push('/')
+      
   }
 
   return (
@@ -34,7 +42,9 @@ export default function Create() {
 
       <main className={styles.main}>
        
-        
+        <Input placeholder="Name" onChange={(event)=> setName(event.target.value)} />
+        <Input placeholder="Author" onChange={(event) => setAuthor(event.target.value)}/>
+        <Input placeholder="Description" onChange={(event) => setDesc(event.target.value)}/>
          <Button onClick={create}>Create Book</Button>
       </main>
 

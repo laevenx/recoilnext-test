@@ -6,14 +6,14 @@ export const addData = selector({
   get: ({ get }) => get(books),
   set: ({ get, set, reset }, newValue) => {
     // let bookData = get(books) // you can't push data from GET
-  
+    console.log(newValue)
     // HOW TO USE SET
-    let newBook = {
-      name: "testing1",
-      author: "testing1",
-      desc: "testing1",
-    };
-    set(books, newBook); // (atom, newValue)
+    // let newBook = {
+    //   name: "testing1",
+    //   author: "testing1",
+    //   desc: "testing1",
+    // };
+    set(books, newValue); // (atom, newValue)
 
     let bookData = get(books);
     //    bookData = reset(books) // Erase atom data
